@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiFilter, FiX, FiChevronDown } from 'react-icons/fi';
-import ProductGrid from '../components/ProductGrid';
+import ProductGrid from '../Components/ProductGrid';
 import productData from '../data/productData';
 
 const CategoryPage = () => {
