@@ -11,7 +11,7 @@ import {
 } from 'react-icons/fi';
 import { CartContext } from '../App';
 import productData from '../data/productData';
-import ProductGrid from '../components/ProductGrid';
+import ProductGrid from '../Components/ProductGrid';
 
 const ProductPage = () => {
 	const { id } = useParams();
