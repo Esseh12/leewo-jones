@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiChevronRight } from 'react-icons/fi';
-import ProductGrid from '../components/ProductGrid';
+import ProductGrid from '../Components/ProductGrid';
 import productData from '../data/productData';
 
 const HomePage = () => {

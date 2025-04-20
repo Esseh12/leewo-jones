@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
-import HomePage from './Pages/HomePage';
+import HomePage from './Pages/Homepage';
 import CategoryPage from './Pages/CategoryPage';
 import ProductPage from './Pages/ProductPage';
 import './index.css';
