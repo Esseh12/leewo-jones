@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import Navbar from './Components/Navbar';
+import Footer from './Components/Footer';
 import HomePage from './Pages/HomePage';
 import CategoryPage from './Pages/CategoryPage';
 import ProductPage from './Pages/ProductPage';
