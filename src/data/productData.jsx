@@ -39,7 +39,7 @@ const productData = {
 			downloads: 98,
 			license: 'Extended',
 			imageUrl:
-				'https://images.pexels.com/photos/26746959/pexels-photo-26746959/free-photo-of-close-up-of-a-person-holding-a-flower.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',
+				'https://images.pexels.com/photos/2603464/pexels-photo-2603464.jpeg?auto=compress&cs=tinysrgb&w=400',
 			thumbnailUrl: '/thumbnails/urban/night-lights.jpg',
 		},
 		{
@@ -59,7 +59,8 @@ const productData = {
 			popularity: 4.9,
 			downloads: 203,
 			license: 'Standard',
-			imageUrl: '/images/nature/beach-sunrise.png',
+			imageUrl:
+				'https://images.pexels.com/photos/31707200/pexels-photo-31707200/free-photo-of-serene-ocean-sunset-with-rocky-outcrops.jpeg?auto=compress&cs=tinysrgb&w=400',
 			thumbnailUrl: '/thumbnails/nature/beach-sunrise.png',
 		},
 		{
@@ -86,7 +87,8 @@ const productData = {
 			popularity: 4.7,
 			downloads: 87,
 			license: 'Extended',
-			imageUrl: '/images/architecture/abstract-geometry.jpg',
+			imageUrl:
+				'https://images.pexels.com/photos/137594/pexels-photo-137594.jpeg?auto=compress&cs=tinysrgb&w=400',
 			thumbnailUrl: '/thumbnails/architecture/abstract-geometry.jpg',
 		},
 		{
@@ -106,7 +108,8 @@ const productData = {
 			popularity: 4.5,
 			downloads: 119,
 			license: 'Standard',
-			imageUrl: '/images/nature/autumn-path.jpg',
+			imageUrl:
+				'https://images.pexels.com/photos/29959510/pexels-photo-29959510/free-photo-of-rustic-wooden-bridge-in-serene-autumn-forest.jpeg?auto=compress&cs=tinysrgb&w=400',
 			thumbnailUrl: '/thumbnails/nature/autumn-path.jpg',
 		},
 		{
@@ -126,7 +129,8 @@ const productData = {
 			popularity: 4.3,
 			downloads: 156,
 			license: 'Standard',
-			imageUrl: '/images/lifestyle/minimalist-workspace.jpg',
+			imageUrl:
+				'https://images.pexels.com/photos/13162095/pexels-photo-13162095.jpeg?auto=compress&cs=tinysrgb&w=400',
 			thumbnailUrl: '/thumbnails/lifestyle/minimalist-workspace.jpg',
 		},
 		{
@@ -146,7 +150,8 @@ const productData = {
 			popularity: 4.6,
 			downloads: 92,
 			license: 'Extended',
-			imageUrl: '/images/transportation/vintage-car.jpg',
+			imageUrl:
+				'https://images.pexels.com/photos/1974520/pexels-photo-1974520.jpeg?auto=compress&cs=tinysrgb&w=400',
 			thumbnailUrl: '/thumbnails/transportation/vintage-car.jpg',
 		},
 		{
@@ -166,7 +171,8 @@ const productData = {
 			popularity: 4.4,
 			downloads: 178,
 			license: 'Standard',
-			imageUrl: '/images/food/coffee-art.jpg',
+			imageUrl:
+				'https://images.pexels.com/photos/3146167/pexels-photo-3146167.jpeg?auto=compress&cs=tinysrgb&w=400',
 			thumbnailUrl: '/thumbnails/food/coffee-art.jpg',
 		},
 		{
@@ -186,7 +192,8 @@ const productData = {
 			popularity: 4.9,
 			downloads: 223,
 			license: 'Extended',
-			imageUrl: '/images/aerial/beach-view.jpg',
+			imageUrl:
+				'https://images.pexels.com/photos/31663225/pexels-photo-31663225/free-photo-of-aerial-view-of-bondi-beach-in-australia.jpeg?auto=compress&cs=tinysrgb&w=400',
 			thumbnailUrl: '/thumbnails/aerial/beach-view.jpg',
 		},
 		{
@@ -206,7 +213,8 @@ const productData = {
 			popularity: 4.7,
 			downloads: 134,
 			license: 'Standard',
-			imageUrl: '/images/macro/water-droplet.jpg',
+			imageUrl:
+				'https://images.pexels.com/photos/932320/pexels-photo-932320.jpeg?auto=compress&cs=tinysrgb&w=400',
 			thumbnailUrl: '/thumbnails/macro/water-droplet.jpg',
 		},
 		{
@@ -226,7 +234,8 @@ const productData = {
 			popularity: 5.0,
 			downloads: 256,
 			license: 'Extended',
-			imageUrl: '/images/nature/northern-lights.jpg',
+			imageUrl:
+				'https://images.pexels.com/photos/17058409/pexels-photo-17058409/free-photo-of-silhouetted-trees-on-the-background-of-northern-lights.jpeg?auto=compress&cs=tinysrgb&w=400',
 			thumbnailUrl: '/thumbnails/nature/northern-lights.jpg',
 		},
 		{
@@ -253,7 +262,8 @@ const productData = {
 			popularity: 4.8,
 			downloads: 187,
 			license: 'Standard',
-			imageUrl: '/images/architecture/church-interior.jpg',
+			imageUrl:
+				'https://images.pexels.com/photos/31657716/pexels-photo-31657716/free-photo-of-ornate-interior-of-historical-church-with-organ.jpeg?auto=compress&cs=tinysrgb&w=400',
 			thumbnailUrl: '/thumbnails/architecture/church-interior.jpg',
 		},
 		{
@@ -280,7 +290,8 @@ const productData = {
 			popularity: 4.2,
 			downloads: 198,
 			license: 'Standard',
-			imageUrl: '/images/business/handshake.jpg',
+			imageUrl:
+				'https://images.pexels.com/photos/7414284/pexels-photo-7414284.jpeg?auto=compress&cs=tinysrgb&w=400',
 			thumbnailUrl: '/thumbnails/business/handshake.jpg',
 		},
 		{
@@ -307,7 +318,8 @@ const productData = {
 			popularity: 4.5,
 			downloads: 215,
 			license: 'Extended',
-			imageUrl: '/images/textures/watercolor.png',
+			imageUrl:
+				'https://images.pexels.com/photos/1561020/pexels-photo-1561020.jpeg?auto=compress&cs=tinysrgb&w=400',
 			thumbnailUrl: '/thumbnails/textures/watercolor.png',
 		},
 		{
@@ -327,7 +339,8 @@ const productData = {
 			popularity: 4.9,
 			downloads: 167,
 			license: 'Standard',
-			imageUrl: '/images/nature/mountain-peak.jpg',
+			imageUrl:
+				'https://images.pexels.com/photos/1133492/pexels-photo-1133492.jpeg?auto=compress&cs=tinysrgb&w=400',
 			thumbnailUrl: '/thumbnails/nature/mountain-peak.jpg',
 		},
 		{
@@ -347,7 +360,8 @@ const productData = {
 			popularity: 4.6,
 			downloads: 103,
 			license: 'Standard',
-			imageUrl: '/images/abstract/fluid-art.jpg',
+			imageUrl:
+				'https://images.pexels.com/photos/11167639/pexels-photo-11167639.jpeg?auto=compress&cs=tinysrgb&w=400',
 			thumbnailUrl: '/thumbnails/abstract/fluid-art.jpg',
 		},
 		{
@@ -367,7 +381,8 @@ const productData = {
 			popularity: 4.4,
 			downloads: 132,
 			license: 'Standard',
-			imageUrl: '/images/food/fruit-arrangement.jpg',
+			imageUrl:
+				'https://images.pexels.com/photos/1656666/pexels-photo-1656666.jpeg?auto=compress&cs=tinysrgb&w=400',
 			thumbnailUrl: '/thumbnails/food/fruit-arrangement.jpg',
 		},
 		{

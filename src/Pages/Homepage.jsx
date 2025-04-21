@@ -30,27 +30,31 @@ const HomePage = () => {
 		{
 			name: 'Bikes',
 			path: '/category/bikes',
-			image: '/images/categories/bikes.jpg',
+			image:
+				'https://images.pexels.com/photos/1119796/pexels-photo-1119796.jpeg?auto=compress&cs=tinysrgb&w=600',
 			description:
 				'Stunning photographs of motorcycles, racing bikes, and custom builds',
 		},
 		{
 			name: 'Weddings',
 			path: '/category/weddings',
-			image: '/images/categories/weddings.jpg',
+			image:
+				'https://images.pexels.com/photos/31633130/pexels-photo-31633130/free-photo-of-romantic-couple-embracing-by-lake-outdoors.jpeg?auto=compress&cs=tinysrgb&w=600',
 			description:
 				'Capture the essence of special moments with our premium wedding photography',
 		},
 		{
 			name: 'Nature',
 			path: '/category/nature',
-			image: '/images/categories/nature.jpg',
+			image:
+				'https://images.pexels.com/photos/158028/bellingrath-gardens-alabama-landscape-scenic-158028.jpeg?auto=compress&cs=tinysrgb&w=600',
 			description: 'Breathtaking landscapes, wildlife, and natural phenomena',
 		},
 		{
 			name: 'Urban',
 			path: '/category/urban',
-			image: '/images/categories/urban.jpg',
+			image:
+				'https://images.pexels.com/photos/561652/pexels-photo-561652.jpeg?auto=compress&cs=tinysrgb&w=600',
 			description: 'City life, street photography, and architectural wonders',
 		},
 	];
@@ -124,10 +128,10 @@ const HomePage = () => {
 								<Link to={category.path}>
 									<div className='aspect-w-4 aspect-h-3 relative'>
 										<div
-											className='w-full h-full bg-cover bg-center transform group-hover:scale-105 transition-transform duration-300'
+											className='w-full h-[50vh] bg-cover bg-center transform group-hover:scale-105 transition-transform duration-300'
 											style={{ backgroundImage: `url(${category.image})` }}
 										/>
-										<div className='absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-30 transition-all duration-300' />
+										<div className='absolute inset-0 bg-black/40 bg-opacity-40 group-hover:bg-opacity-30 transition-all duration-300' />
 										<div className='absolute inset-0 flex items-center justify-center'>
 											<div className='text-center'>
 												<h3 className='text-2xl font-bold text-white'>
