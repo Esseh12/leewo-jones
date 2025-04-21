@@ -116,16 +116,16 @@ const CartPage = () => {
 													transition={{ duration: 0.3 }}>
 													<td className='py-4 px-4 whitespace-nowrap'>
 														<div className='flex items-center'>
-															{item.image && (
+															{item.imageUrl && (
 																<img
-																	src={item.image}
-																	alt={item.name}
+																	src={item.imageUrl}
+																	alt={item.title}
 																	className='h-16 w-16 rounded-md object-cover mr-4'
 																/>
 															)}
 															<div>
 																<p className='text-sm font-medium text-gray-900'>
-																	{item.name}
+																	{item.title}
 																</p>
 																{item.variant && (
 																	<p className='text-xs text-gray-500'>

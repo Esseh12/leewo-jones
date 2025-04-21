@@ -9,13 +9,11 @@ import HomePage from './Pages/Homepage';
 import CategoryPage from './Pages/CategoryPage';
 import ProductPage from './Pages/ProductPage';
 import CartPage from './Pages/CartPage';
+import AboutPage from './Pages/AboutPage';
+import ContactPage from './Pages/ContactPage';
+import SearchPage from './pages/SearchPage';
+import CheckoutPage from './Pages/CheckoutPage';
 import './index.css';
-// import productData from './data/productData';
-// import CheckoutPage from './pages/CheckoutPage';
-// import SearchPage from './pages/SearchPage';
-// import AboutPage from './pages/AboutPage';
-// import ContactPage from './pages/ContactPage';
-// import productData from './data/productData';
 
 function App() {
 	const location = useLocation();
@@ -44,24 +42,22 @@ function App() {
 							path='/cart'
 							element={<CartPage />}
 						/>
-						{/*
-								
-								<Route
-									path='/checkout'
-									element={<CheckoutPage />}
-								/>
-								<Route
-									path='/search'
-									element={<SearchPage />}
-								/>
-								<Route
-									path='/about'
-									element={<AboutPage />}
-								/>
-								<Route
-									path='/contact'
-									element={<ContactPage />}
-								/> */}
+						<Route
+							path='/about'
+							element={<AboutPage />}
+						/>
+						<Route
+							path='/contact'
+							element={<ContactPage />}
+						/>
+						<Route
+							path='/search'
+							element={<SearchPage />}
+						/>
+						<Route
+							path='/checkout'
+							element={<CheckoutPage />}
+						/>
 					</Routes>
 				</AnimatePresence>
 			</main>
