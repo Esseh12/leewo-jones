@@ -9,7 +9,7 @@ import {
 	FiCheck,
 	FiX,
 } from 'react-icons/fi';
-import { CartContext } from '../App';
+import { CartContext } from '../context/CartContext';
 import productData from '../data/productData';
 import ProductGrid from '../Components/ProductGrid';
 

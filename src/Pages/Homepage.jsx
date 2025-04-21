@@ -61,7 +61,10 @@ const HomePage = () => {
 			<section className='relative h-96 sm:h-[80vh] overflow-hidden'>
 				<div
 					className='absolute inset-0 bg-cover bg-center'
-					style={{ backgroundImage: 'url(/images/hero-image.jpg)' }}>
+					style={{
+						backgroundImage:
+							'url(https://instagram.flos5-1.fna.fbcdn.net/v/t39.30808-6/474754797_18481181854027141_2326917343374738353_n.jpg?stp=dst-jpg_e35_tt6&cb=30a688f7-fa102a98&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQuaW1hZ2VfdXJsZ2VuLjEwODB4NzIwLnNkci5mMzA4MDguZGVmYXVsdF9pbWFnZSJ9&_nc_ht=instagram.flos5-1.fna.fbcdn.net&_nc_cat=101&_nc_oc=Q6cZ2QGOMvn4WRnfPWOVsq-r_SsuB24ycuKYZ260Tjlk8hAmqCowPrjsMtMW7t_agXg75DU&_nc_ohc=FkujYNbi1g8Q7kNvwFgMOSL&_nc_gid=6bdscwuGc0tjyo-C7FLC8Q&edm=ALQROFkAAAAA&ccb=7-5&ig_cache_key=MzQzNDM3NzY5MTg2NjAxOTE2NA%3D%3D.3-ccb7-5-cb30a688f7-fa102a98&oh=00_AfEFM9_PsAjui7VmdRAzHCmz0l0NodMNQ0bLO2pBsOaGRw&oe=680B2D76&_nc_sid=fc8dfb)',
+					}}>
 					{/* Watermark overlay */}
 					<div className='absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none'>
 						<div
@@ -71,7 +74,7 @@ const HomePage = () => {
 						</div>
 					</div>
 				</div>
-				<div className='absolute inset-0 bg-black bg-opacity-40' />
+				<div className='absolute inset-0 bg-black/40 bg-opacity-40' />
 				<div className='absolute inset-0 flex items-center'>
 					<div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
 						<motion.h1

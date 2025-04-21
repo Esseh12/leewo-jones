@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiShoppingCart, FiEye } from 'react-icons/fi';
-import { CartContext } from '../App';
+import { CartContext } from '../context/CartContext';
 
 const ProductCard = ({ product }) => {
 	const { addToCart } = useContext(CartContext);

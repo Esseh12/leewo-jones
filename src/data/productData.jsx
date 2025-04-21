@@ -17,7 +17,8 @@ const productData = {
 			popularity: 4.8,
 			downloads: 142,
 			license: 'Standard',
-			imageUrl: 'https://www.instagram.com/leewojones/p/C7d-3EMMhuM/',
+			imageUrl:
+				'https://images.pexels.com/photos/26746959/pexels-photo-26746959/free-photo-of-close-up-of-a-person-holding-a-flower.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',
 			thumbnailUrl: '/thumbnails/nature/sunset-mountains.jpg',
 		},
 		{
@@ -37,7 +38,8 @@ const productData = {
 			popularity: 4.6,
 			downloads: 98,
 			license: 'Extended',
-			imageUrl: '/images/urban/night-lights.jpg',
+			imageUrl:
+				'https://images.pexels.com/photos/26746959/pexels-photo-26746959/free-photo-of-close-up-of-a-person-holding-a-flower.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',
 			thumbnailUrl: '/thumbnails/urban/night-lights.jpg',
 		},
 		{

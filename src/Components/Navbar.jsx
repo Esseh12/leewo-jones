@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiSearch, FiShoppingCart, FiMenu, FiX } from 'react-icons/fi';
-import { CartContext } from '../App';
+import { CartContext } from '../context/CartContext';
 import Logo from './Logo';
 
 const Navbar = () => {
