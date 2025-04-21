@@ -11,7 +11,7 @@ import ProductPage from './Pages/ProductPage';
 import CartPage from './Pages/CartPage';
 import AboutPage from './Pages/AboutPage';
 import ContactPage from './Pages/ContactPage';
-import SearchPage from './pages/SearchPage';
+import SearchPage from './Pages/SearchPage';
 import CheckoutPage from './Pages/CheckoutPage';
 import './index.css';
 
