@@ -26,8 +26,23 @@ type SQLiteStore struct {
 	DB *sql.DB
 }
 
+//  id TEXT PRIMARY KEY,
+//     title TEXT NOT NULL,
+//     price REAL NOT NULL,
+//     category TEXT,
+//     sub_category TEXT,
+//     description TEXT,
+//     format TEXT,
+//     resolution TEXT,
+//     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+//     popularity REAL DEFAULT 0,
+//     downloads INTEGER DEFAULT 0,
+//     thumbnail_url TEXT,
+//     image TEXT,
+//     discount REAL DEFAULT 0
+
 func (store SQLiteStore) GetPhotosByCategory(name string) []model.Photo {
-	query := `SELECT id, title FROM photos WHERE category = ?;`
+	query := `SELECT id, title, price, sub_category, format, created_at, popularity, thumbnail_url, image, discount FROM photos WHERE category = ?;`
 	rows, err := store.DB.Query(query, name)
 	if err != nil {
 		log.Println(err)
@@ -36,7 +51,43 @@ func (store SQLiteStore) GetPhotosByCategory(name string) []model.Photo {
 	var photos []model.Photo
 	for rows.Next() {
 		var p model.Photo
-		err = rows.Scan(&p.Id, &p.Title)
+		err = rows.Scan(
+			&p.Id, &p.Title, &p.Price,
+			&p.SubCategory, &p.Format, &p.CreatedAt,
+			&p.Popularity, &p.ThumbnailUrl, &p.Image,
+			&p.Discount,
+		)
+		if err != nil {
+			log.Println("error scaning record", err)
+			continue
+		}
+		photos = append(photos, p)
+	}
+	return photos
+
+	// return []model.Photo{
+	// 	{Id: "1", Title: "some pic 1", Price: 122.232, Category: "bike", Description: "some descriptooomd"},
+	// 	{Id: "2", Title: "some pic 2", Price: 1234.22, Category: "bike", Description: "some descriptooomd"},
+	// 	{Id: "3", Title: "some pic 3", Price: 3412.22, Category: "bike", Description: "some descriptooomd"},
+	// }
+}
+
+// this gets feautured photos
+func (store SQLiteStore) GetFeaturedPhotos() []model.Photo {
+	query := `SELECT id, title, price, popularity, thumbnail_url, discount FROM photos WHERE featured = 1;`
+	rows, err := store.DB.Query(query)
+	if err != nil {
+		log.Println(err)
+		return []model.Photo{}
+	}
+	var photos []model.Photo
+	for rows.Next() {
+		var p model.Photo
+		err = rows.Scan(
+			&p.Id, &p.Title, &p.Price,
+			&p.Popularity, &p.ThumbnailUrl,
+			&p.Discount,
+		)
 		if err != nil {
 			log.Println("error scaning record", err)
 			continue
