@@ -18,3 +18,12 @@ type Photo struct {
 	Image        string    `json:"image-url,omitempty"`
 	Discount     float64   `json:"discount,omitempty"` // in percent e.g 0.1, 0.15 to mean 10%, 15% discount
 }
+
+type User struct {
+	Id        string    `json:"id,omitempty"`
+	FirstName string    `json:"first-name,omitempty"`
+	LastName  string    `json:"last-name,omitempty"`
+	Email     string    `json:"email,omitempty"`
+	Password  string    `json:"-"`
+	CreatedAt time.Time `json:"-"`
+}

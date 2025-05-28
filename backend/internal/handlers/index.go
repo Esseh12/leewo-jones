@@ -3,12 +3,24 @@ package handlers
 import (
 	"net/http"
 
+	"github.com/Esseh12/leewo-jones/api/internal/services"
 	"github.com/gin-gonic/gin"
 )
 
 func (h Handler) Index(ctx *gin.Context) {
+	PhotoService := services.PhotoService{}
+	const numberOfNewArrivals = 2
+
+	featured := PhotoService.GetFeaturedPhotos(h.Storage)
+	newArrivals := PhotoService.GetNewArrivals(numberOfNewArrivals, h.Storage)
+
 	ctx.JSON(http.StatusOK, gin.H{
-		"message": "welcome home",
+		"status":  http.StatusText(http.StatusOK),
+		"message": "success",
+		"data": map[string]any{
+			"featured":     featured,
+			"new-arrivals": newArrivals,
+		},
 	})
 }
 

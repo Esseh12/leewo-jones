@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"log"
 
+	"github.com/google/uuid"
 	_ "github.com/mattn/go-sqlite3"
 	"github.com/pressly/goose/v3"
 
@@ -95,12 +96,53 @@ func (store SQLiteStore) GetFeaturedPhotos() []model.Photo {
 		photos = append(photos, p)
 	}
 	return photos
+}
 
-	// return []model.Photo{
-	// 	{Id: "1", Title: "some pic 1", Price: 122.232, Category: "bike", Description: "some descriptooomd"},
-	// 	{Id: "2", Title: "some pic 2", Price: 1234.22, Category: "bike", Description: "some descriptooomd"},
-	// 	{Id: "3", Title: "some pic 3", Price: 3412.22, Category: "bike", Description: "some descriptooomd"},
-	// }
+func (store SQLiteStore) GetLatestNArrivals(num int) []model.Photo {
+	query := `SELECT id, title, price, popularity, thumbnail_url, discount FROM photos ORDER BY created_at DESC LIMIT ?;`
+	rows, err := store.DB.Query(query, num)
+	if err != nil {
+		log.Println(err)
+		return []model.Photo{}
+	}
+	var photos []model.Photo
+	for rows.Next() {
+		var p model.Photo
+		err = rows.Scan(
+			&p.Id, &p.Title, &p.Price,
+			&p.Popularity, &p.ThumbnailUrl,
+			&p.Discount,
+		)
+		if err != nil {
+			log.Println("error scaning record", err)
+			continue
+		}
+		photos = append(photos, p)
+	}
+	return photos
+}
+
+func (store SQLiteStore) CreateUser(email string, hashed string) (id string, err error) {
+	id = uuid.New().String()
+	query := `INSERT INTO users (id, email, hashed_password) VALUES(?,?,?);`
+	_, err = store.DB.Exec(query, id, email, hashed)
+	if err != nil {
+		log.Println("error executing insert into users", err)
+		id = ""
+		return
+	}
+	return
+}
+
+func (store SQLiteStore) GetUserById(userPtr *model.User, id string) error {
+	query := `SELECT id, email FROM users WHERE id = ?;`
+
+	row := store.DB.QueryRow(query, id)
+	if err := row.Scan(&userPtr.Id, &userPtr.Email); err != nil {
+		log.Println("error fetching user", err)
+		return err
+	}
+	return nil
 }
 
 func RunMigrations(db *sql.DB) {

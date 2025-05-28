@@ -32,13 +32,18 @@ func (s *Server) RegisterRoutes() {
 
 	h := handlers.NewHandler(s.Storage, s.Config)
 
-	r := s.Router.Group("/api/v1")
+	routes := s.Router.Group("/api/v1")
 	{
-		r.GET("/", h.Index)
-		r.GET("/health", h.Health)
+		routes.GET("/", h.Index)
+		routes.GET("/health", h.Health)
 
-		rc := r.Group("/categories")
-		rc.GET("/:name", h.CategoryDetail)
+		categoryRoutes := routes.Group("/categories")
+		categoryRoutes.GET("/:name", h.CategoryDetail)
+	}
+
+	authRoutes := routes.Group("/auth")
+	{
+		authRoutes.POST("/signup", h.Signup)
 	}
 
 }
