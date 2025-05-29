@@ -2,6 +2,7 @@ package db
 
 import (
 	"database/sql"
+	"errors"
 	"log"
 
 	"github.com/google/uuid"
@@ -9,6 +10,7 @@ import (
 	"github.com/pressly/goose/v3"
 
 	"github.com/Esseh12/leewo-jones/api/internal/model"
+	"github.com/Esseh12/leewo-jones/api/pkg/utils"
 )
 
 func InitDB() *sql.DB {
@@ -122,6 +124,22 @@ func (store SQLiteStore) GetLatestNArrivals(num int) []model.Photo {
 	return photos
 }
 
+func (store SQLiteStore) SigninUser(email, password string) (*model.User, error) {
+	var user model.User
+	err := store.GetUserByEmail(&user, email)
+	if err != nil {
+		log.Println("error getting user by email", err)
+		return nil, err
+	}
+	err = utils.CompareHash(user.Password, password)
+	if err != nil {
+		log.Println("error comparing user hashed password", err)
+		return nil, errors.New("incorrect password")
+	}
+
+	return &user, nil
+}
+
 func (store SQLiteStore) CreateUser(email string, hashed string) (id string, err error) {
 	id = uuid.New().String()
 	query := `INSERT INTO users (id, email, hashed_password) VALUES(?,?,?);`
@@ -141,6 +159,17 @@ func (store SQLiteStore) GetUserById(userPtr *model.User, id string) error {
 	if err := row.Scan(&userPtr.Id, &userPtr.Email); err != nil {
 		log.Println("error fetching user", err)
 		return err
+	}
+	return nil
+}
+
+func (store SQLiteStore) GetUserByEmail(userPtr *model.User, email string) error {
+	query := `SELECT id, email, hashed_password FROM users WHERE email = ?;`
+
+	row := store.DB.QueryRow(query, email)
+	if err := row.Scan(&userPtr.Id, &userPtr.Email, &userPtr.Password); err != nil {
+		log.Println("error fetching user by email", err)
+		return errors.New("no user with such email")
 	}
 	return nil
 }

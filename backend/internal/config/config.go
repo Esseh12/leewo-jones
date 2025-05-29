@@ -8,8 +8,9 @@ import (
 )
 
 type Config struct {
-	Host string
-	Port string
+	Host       string
+	Port       string
+	JWT_SECRET string
 }
 
 func New() *Config {
@@ -24,8 +25,9 @@ func New() *Config {
 	}
 
 	return &Config{
-		Host: getEnv("HOST", ""),
-		Port: getEnv("PORT", "5000"),
+		Host:       getEnv("HOST", ""),
+		Port:       getEnv("PORT", "5000"),
+		JWT_SECRET: mustGetEnv("JWT_SECRET"),
 	}
 }
 
@@ -39,15 +41,15 @@ func getEnv(key, default_value string) string {
 	return h
 }
 
-// func mustGetEnv(key string) string {
+func mustGetEnv(key string) string {
 
-// 	h := os.Getenv(key)
-// 	if h == "" {
-// 		log.Fatalf("%s must be supplied\n", key)
-// 	}
+	h := os.Getenv(key)
+	if h == "" {
+		log.Fatalf("%s must be supplied\n", key)
+	}
 
-// 	return h
-// }
+	return h
+}
 
 // func getINT(key string) int {
 

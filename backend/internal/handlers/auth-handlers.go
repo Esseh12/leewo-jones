@@ -1,12 +1,64 @@
 package handlers
 
 import (
+	"errors"
 	"log"
 	"net/http"
 
+	"github.com/Esseh12/leewo-jones/api/internal/model"
 	"github.com/Esseh12/leewo-jones/api/internal/services"
 	"github.com/gin-gonic/gin"
 )
+
+func (h Handler) Profile(ctx *gin.Context) {
+	val, ok := ctx.Get("user")
+	if !ok {
+		ctx.JSON(http.StatusBadGateway, gin.H{
+			"error": "cannot get user from context",
+		})
+		return
+	}
+	user := val.(model.User)
+	ctx.JSON(http.StatusOK, gin.H{
+		"status":  http.StatusText(http.StatusOK),
+		"message": "User profile",
+		"data": map[string]model.User{
+			"user": user,
+		},
+	})
+}
+
+func (h Handler) Login(ctx *gin.Context) {
+	var data createUserPOSTData
+	err := ctx.ShouldBindJSON(&data)
+	if err != nil {
+		log.Println(err)
+		ctx.JSON(http.StatusBadRequest, gin.H{
+			"error": err.Error(),
+		})
+		return
+	}
+
+	auth := services.AuthService{
+		Store:  h.Storage,
+		Config: h.Config,
+	}
+	loggedInData, err := auth.LoginUser(data.Email, data.Password)
+	if err != nil {
+		err = errors.Join(errors.New("invalid login details"), err)
+		ctx.JSON(http.StatusBadRequest, gin.H{
+			"error": err.Error(),
+		})
+		return
+	}
+
+	ctx.JSON(http.StatusAccepted, gin.H{
+		"status":  http.StatusText(http.StatusAccepted),
+		"message": "User logged-in successfully!",
+		"data":    loggedInData,
+	})
+
+}
 
 func (h Handler) Signup(ctx *gin.Context) {
 	var data createUserPOSTData

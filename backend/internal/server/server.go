@@ -38,12 +38,16 @@ func (s *Server) RegisterRoutes() {
 		routes.GET("/health", h.Health)
 
 		categoryRoutes := routes.Group("/categories")
-		categoryRoutes.GET("/:name", h.CategoryDetail)
-	}
+		{
+			categoryRoutes.GET("/:name", h.CategoryDetail)
+		}
 
-	authRoutes := routes.Group("/auth")
-	{
-		authRoutes.POST("/signup", h.Signup)
+		authRoutes := routes.Group("/auth")
+		{
+			authRoutes.POST("/signup", h.Signup)
+			authRoutes.POST("/login", h.Login)
+		}
+		routes.GET("/profile", h.Authenticate, h.Profile)
 	}
 
 }
