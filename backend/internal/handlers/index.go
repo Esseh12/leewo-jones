@@ -7,6 +7,16 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// @BasePath /api/v1
+
+// PingExample godoc
+// @Summary ping example
+// @Schemes
+// @Description do ping
+// @Tags example
+// @Produce json
+// @Success 200 {string} Helloworld
+// @Router / [get]
 func (h Handler) Index(ctx *gin.Context) {
 	PhotoService := services.PhotoService{}
 	const numberOfNewArrivals = 2

@@ -1,6 +1,6 @@
 
 
-.PHONY: migrations
+.PHONY: migrations swag
 
 run:
 	go run cmd/main.go
@@ -14,3 +14,6 @@ migrateup:
 migratestatus:
 	goose -dir migrations sqlite3 leewo.db status
 
+swag:
+	swag init -g cmd/main.go --dir . --parseDependency --output ./docs
+	
