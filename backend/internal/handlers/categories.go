@@ -9,6 +9,14 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// ShowAccount godoc
+// @Summary get category detail
+// @Description returns info about a specified category
+// @Tags Categories
+// @Produce json
+// @Success 200
+// @Param name path string true "category name"
+// @Router /categories/{name} [get]
 func (h Handler) CategoryDetail(ctx *gin.Context) {
 	name := ctx.Param("name")
 	name = strings.ToLower(name)

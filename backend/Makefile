@@ -2,7 +2,7 @@
 
 .PHONY: migrations swag
 
-run:
+run: swag
 	go run cmd/main.go
 
 migrations:

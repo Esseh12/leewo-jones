@@ -1,5 +1,9 @@
 ### Routes
 
+# Documents at
+
+`http://localhost:10000/docs/index.html`
+
 BASE
 /api/v1
 

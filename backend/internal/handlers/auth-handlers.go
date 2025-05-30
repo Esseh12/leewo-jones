@@ -10,6 +10,14 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// ShowAccount godoc
+// @Summary get user profile
+// @Description returns uer profile
+// @Tags Auth
+// @Security ApiKeyAuth
+// @Produce json
+// @Success 200
+// @Router /profile [get]
 func (h Handler) Profile(ctx *gin.Context) {
 	val, ok := ctx.Get("user")
 	if !ok {
@@ -28,6 +36,15 @@ func (h Handler) Profile(ctx *gin.Context) {
 	})
 }
 
+// ShowAccount godoc
+// @Summary login user
+// @Description user login using email and passsword
+// @Tags Auth
+// @Produce json
+// @Success 202
+// @failure 400
+// @Param body body createUserPOSTData true "Request body description"
+// @Router /auth/login [post]
 func (h Handler) Login(ctx *gin.Context) {
 	var data createUserPOSTData
 	err := ctx.ShouldBindJSON(&data)
@@ -60,6 +77,15 @@ func (h Handler) Login(ctx *gin.Context) {
 
 }
 
+// ShowAccount godoc
+// @Summary register user
+// @Description signup user using email and passsword
+// @Tags Auth
+// @Produce json
+// @Success 201
+// @failure 400
+// @Param body body createUserPOSTData true "data for signup"
+// @Router /auth/signup [post]
 func (h Handler) Signup(ctx *gin.Context) {
 	var data createUserPOSTData
 

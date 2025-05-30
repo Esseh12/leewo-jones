@@ -7,15 +7,13 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// @BasePath /api/v1
-
 // PingExample godoc
-// @Summary ping example
+// @Summary index page
 // @Schemes
-// @Description do ping
-// @Tags example
+// @Description shows data for the index page
+// @Tags Index
 // @Produce json
-// @Success 200 {string} Helloworld
+// @Success 200
 // @Router / [get]
 func (h Handler) Index(ctx *gin.Context) {
 	PhotoService := services.PhotoService{}
@@ -34,6 +32,14 @@ func (h Handler) Index(ctx *gin.Context) {
 	})
 }
 
+// ShowAccount godoc
+// @Summary      health checker
+// @Description  checks if server is running
+// @Tags         Index
+// @Produce      json
+// @Success      200
+// @Failure      500
+// @Router       /health [get]
 func (h Handler) Health(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, gin.H{
 		"health": "OK",

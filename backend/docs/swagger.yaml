@@ -1,17 +1,133 @@
+basePath: /api/v1
+definitions:
+  internal_handlers.createUserPOSTData:
+    properties:
+      email:
+        description: |-
+          FirstName string `json:"first-name" binding:"required,min=3"`
+          LastName  string `json:"last-name" binding:"required,min=3"`
+        type: string
+      password:
+        type: string
+    required:
+    - email
+    - password
+    type: object
+externalDocs:
+  description: OpenAPI
+  url: https://swagger.io/resources/open-api/
+host: localhost:10000
 info:
-  contact: {}
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: some documenation for the apis
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Swagger Documentation For Leewo-Photo Platform's API
+  version: "1.0"
 paths:
   /:
     get:
-      description: do ping
+      description: shows data for the index page
       produces:
       - application/json
       responses:
         "200":
           description: OK
-          schema:
-            type: string
-      summary: ping example
+      summary: index page
       tags:
-      - example
+      - Index
+  /auth/login:
+    post:
+      description: user login using email and passsword
+      parameters:
+      - description: Request body description
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/internal_handlers.createUserPOSTData'
+      produces:
+      - application/json
+      responses:
+        "202":
+          description: Accepted
+        "400":
+          description: Bad Request
+      summary: login user
+      tags:
+      - Auth
+  /auth/signup:
+    post:
+      description: signup user using email and passsword
+      parameters:
+      - description: data for signup
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/internal_handlers.createUserPOSTData'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+        "400":
+          description: Bad Request
+      summary: register user
+      tags:
+      - Auth
+  /categories/{name}:
+    get:
+      description: returns info about a specified category
+      parameters:
+      - description: category name
+        in: path
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: get category detail
+      tags:
+      - Categories
+  /health:
+    get:
+      description: checks if server is running
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "500":
+          description: Internal Server Error
+      summary: health checker
+      tags:
+      - Index
+  /profile:
+    get:
+      description: returns uer profile
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      security:
+      - ApiKeyAuth: []
+      summary: get user profile
+      tags:
+      - Auth
+securityDefinitions:
+  ApiKeyAuth:
+    description: '"put the key in this format `Bearer eyJhbGciOiJIsP8`"'
+    in: Authorization
+    name: Authorization
+    type: apiKey
 swagger: "2.0"

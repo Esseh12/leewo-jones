@@ -1,28 +1,199 @@
 {
     "swagger": "2.0",
     "info": {
-        "contact": {}
+        "description": "some documenation for the apis",
+        "title": "Swagger Documentation For Leewo-Photo Platform's API",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "API Support",
+            "url": "http://www.swagger.io/support",
+            "email": "support@swagger.io"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
     },
+    "host": "localhost:10000",
+    "basePath": "/api/v1",
     "paths": {
         "/": {
             "get": {
-                "description": "do ping",
+                "description": "shows data for the index page",
                 "produces": [
                     "application/json"
                 ],
                 "tags": [
-                    "example"
+                    "Index"
                 ],
-                "summary": "ping example",
+                "summary": "index page",
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/auth/login": {
+            "post": {
+                "description": "user login using email and passsword",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "login user",
+                "parameters": [
+                    {
+                        "description": "Request body description",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
                         "schema": {
-                            "type": "string"
+                            "$ref": "#/definitions/internal_handlers.createUserPOSTData"
                         }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Accepted"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/auth/signup": {
+            "post": {
+                "description": "signup user using email and passsword",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "register user",
+                "parameters": [
+                    {
+                        "description": "data for signup",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/internal_handlers.createUserPOSTData"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/categories/{name}": {
+            "get": {
+                "description": "returns info about a specified category",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "get category detail",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "category name",
+                        "name": "name",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/health": {
+            "get": {
+                "description": "checks if server is running",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Index"
+                ],
+                "summary": "health checker",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/profile": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "returns uer profile",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "get user profile",
+                "responses": {
+                    "200": {
+                        "description": "OK"
                     }
                 }
             }
         }
+    },
+    "definitions": {
+        "internal_handlers.createUserPOSTData": {
+            "type": "object",
+            "required": [
+                "email",
+                "password"
+            ],
+            "properties": {
+                "email": {
+                    "description": "FirstName string `json:\"first-name\" binding:\"required,min=3\"`\nLastName  string `json:\"last-name\" binding:\"required,min=3\"`",
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "ApiKeyAuth": {
+            "description": "\"put the key in this format `Bearer eyJhbGciOiJIsP8`\"",
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "Authorization"
+        }
+    },
+    "externalDocs": {
+        "description": "OpenAPI",
+        "url": "https://swagger.io/resources/open-api/"
     }
 }

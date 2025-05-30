@@ -8,8 +8,6 @@ import (
 	"github.com/Esseh12/leewo-jones/api/internal/handlers"
 	"github.com/Esseh12/leewo-jones/api/internal/model"
 	"github.com/gin-gonic/gin"
-	swaggerfiles "github.com/swaggo/files" // swagger embed files
-	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 type Server struct {
@@ -36,9 +34,9 @@ func (s *Server) RegisterRoutes() {
 
 	routes := s.Router.Group("/api/v1")
 	{
-		routes.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 		routes.GET("/", h.Index)
 		routes.GET("/health", h.Health)
+		routes.GET("/profile", h.Authenticate, h.Profile)
 
 		categoryRoutes := routes.Group("/categories")
 		{
@@ -50,7 +48,7 @@ func (s *Server) RegisterRoutes() {
 			authRoutes.POST("/signup", h.Signup)
 			authRoutes.POST("/login", h.Login)
 		}
-		routes.GET("/profile", h.Authenticate, h.Profile)
+
 	}
 
 }
