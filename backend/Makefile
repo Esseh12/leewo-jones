@@ -2,6 +2,9 @@
 
 .PHONY: migrations swag
 
+build:
+	GOOS=linux GOARCH=amd64 go build -o bin/leewo cmd/main.go
+
 run: swag
 	go run cmd/main.go
 
