@@ -4,8 +4,13 @@
 
 `http://localhost:10000/docs/index.html`
 
-BASE
-/api/v1
+Remember to create a .env file in the backend root and fill it up with the content of the .env.example
+
+- to run the exucatable
+  `./bin/leewo`
+
+  BASE
+  /api/v1
 
 1. GET / -- index route shows featured adn new arrivals
 2. GET /health -- health route for checking if server is still running fine
